@@ -122,7 +122,7 @@ public class LoginView extends JFrame {
 	 * GET COMPONENTS
 	 */
 
-	public JTextField getTxtUsername() {
+	public static JTextField getTxtUsername() {
 		return txtUsername;
 	}
 
