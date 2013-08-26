@@ -16,8 +16,8 @@ import java.sql.*;
 
 import javax.swing.*;
 
+import abstractPanel.GUI;
 import finalLoginModule.LoginView;
-import view.GUI;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
+import DAO.systemLogDAO;
 import finalNavigatorModule.NavigatorController;
 import finalNavigatorModule.NavigatorModel;
 import finalNavigatorModule.NavigatorView;
@@ -64,8 +65,7 @@ public class LoginController {
 					if (loginModel.checkMatch(loginModel.getUserMdl(), loginView.getTxtUsername(), loginView.getTxtPass())) {
 						loginView.setVisible(false);
 						new NavigatorController(new NavigatorView(), new NavigatorModel(loginModel.getUser(loginView.getTxtUsername().getText())));
-						System.out.println("SYSTEM LOG");
-						// systemLogDAO.getInstance().saveAccess("Logged in to the system", username.getText().toString());
+						systemLogDAO.getInstance().saveAccess("Logged in to the system", loginView.getTxtUsername().getText());
 					} else {
 						loginView.getLblNotMatch().setVisible(true);
 					}

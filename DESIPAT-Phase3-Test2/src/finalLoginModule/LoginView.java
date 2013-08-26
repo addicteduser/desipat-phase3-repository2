@@ -65,6 +65,7 @@ public class LoginView extends JFrame {
 	 */
 	private void setFrame() {
 		this.setSize(lblBG.getIcon().getIconWidth(), lblBG.getIcon().getIconHeight());
+		System.out.println(this.getSize());
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);

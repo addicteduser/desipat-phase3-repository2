@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import javax.swing.JLabel;
 
+import DAO.systemLogDAO;
 import finalAddModule.AddController;
 import finalAddModule.AddModel;
 import finalAddModule.AddView;
@@ -15,6 +16,8 @@ import finalDeleteModule.DeleteView;
 import finalLoginModule.LoginController;
 import finalLoginModule.LoginModel;
 import finalLoginModule.LoginView;
+import finalViewModule.ViewNavigatorController;
+import finalViewModule.ViewNavigatorView;
 
 /**
  * CONTROLLER for Navigator
@@ -25,16 +28,14 @@ public class NavigatorController {
 	
 	private AddController addCon;
 	private DeleteController delCon;
+	private ViewNavigatorController viewNavCon;
 
 	public NavigatorController(NavigatorView view, NavigatorModel model) {
 		this.navView = view;
 		this.navModel = model;
 		
-		//addCon = new AddController(new AddModel(), new AddView(), this.navModel.getUsername());
-		delCon = new DeleteController(new DeleteView(this.navModel.getUsertype(), this.navModel.getUsername()), new DeleteModel());
-		
-		this.navView.changeCurrentPanel(delCon.getDeleteView(), this.navView.getBtnDeleteAsset());
-		//this.navView.changeCurrentPanel(addCon.getAddView(), this.navView.getBtnAddAsset());
+		addCon = new AddController(new AddModel(), new AddView(), this.navModel.getUsername());
+		this.navView.changeCurrentPanel(addCon.getAddView(), this.navView.getBtnAddAsset());
 		
 		this.navView.addButtonListeners(new Listener());
 	}
@@ -54,16 +55,21 @@ public class NavigatorController {
 			//implement changeCurrentPanel here
 			if (e.getSource() == navView.getBtnAddAsset()) {
 				System.out.println("Add");
+				addCon = new AddController(new AddModel(), new AddView(), navModel.getUsername());
+				navView.changeCurrentPanel(addCon.getAddView(), navView.getBtnAddAsset());
 			} else if (e.getSource() == navView.getBtnEditAsset()) {
 				System.out.println("Edit");
 			} else if (e.getSource() == navView.getBtnDeleteAsset()) {
 				System.out.println("Delete");
+				delCon = new DeleteController(new DeleteView(navModel.getUsertype(), navModel.getUsername()), new DeleteModel());
+				navView.changeCurrentPanel(delCon.getDeleteView(), navView.getBtnDeleteAsset());
 			} else if (e.getSource() == navView.getBtnViewAsset()) {
 				System.out.println("View");
+				viewNavCon = new ViewNavigatorController(new ViewNavigatorView(navModel.getUsertype(), navModel.getUsername()));
+				//new viewassetNavigator(usertype,username), viewAsset
 			} else if (e.getSource() == navView.getBtnLogout()){
                 try {
-                	System.out.println("SYSTEM LOG");
-                    //systemLogDAO.getInstance().saveAccess("Logged out from the system", login.username.getText().toString());
+                    systemLogDAO.getInstance().saveAccess("Logged out from the system", navModel.getUsername());
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }

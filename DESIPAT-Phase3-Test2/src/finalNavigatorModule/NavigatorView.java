@@ -148,7 +148,7 @@ public class NavigatorView extends JFrame {
         this.add(currentPanel);
         this.currentPanel.setBounds(0, bg.getIcon().getIconHeight(), panel.getWidth(), panel.getHeight());
         this.currentButton = panelbutton;
-        this.setSize(this.getWidth()+10, this.getHeight()+currentPanel.getHeight()+15);
+        this.setSize(890, 690);
         this.setLocationRelativeTo(null);
     }
     

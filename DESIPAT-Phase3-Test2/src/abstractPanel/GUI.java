@@ -1,4 +1,4 @@
-package view;
+package abstractPanel;
 
 import java.sql.SQLException;
 import javax.swing.JPanel;
