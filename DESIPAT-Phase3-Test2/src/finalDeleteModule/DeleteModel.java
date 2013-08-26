@@ -4,9 +4,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import DAO.AssetDAO;
-import DAO.UserDAO;
-import Model.UserModel;
+import dataAccessObjects.AssetDAO;
+import dataAccessObjects.UserDAO;
+import dataModel.UserModel;
 
 public class DeleteModel {
 	ArrayList<String> assetName = new ArrayList<String>();

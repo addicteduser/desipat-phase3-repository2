@@ -1,9 +1,4 @@
 package finalViewModule;
-import DAO.AssetDAO;
-import DAO.AssetTypeDAO;
-import Model.*;
-import DAO.*;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -23,6 +18,8 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import dataAccessObjects.*;
+import dataModel.*;
 import finalUniveral.AbstractViewNavPanel;
 /**
  *

@@ -4,7 +4,7 @@
  */
 package Strategy;
 
-import Builder.*;
+import queryBuilder.*;
 
 /**
  *

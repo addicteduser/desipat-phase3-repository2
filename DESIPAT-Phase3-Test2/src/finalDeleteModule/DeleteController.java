@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 
-import DAO.systemLogDAO;
+import dataAccessObjects.systemLogDAO;
 import finalLoginModule.LoginView;
 
 public class DeleteController {

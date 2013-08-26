@@ -4,15 +4,16 @@
  */
 package Template;
 
-import DAO.AssetTypeDAO;
-import DAO.ClassificationDAO;
-import DAO.MaintenanceSchedDAO;
-import DAO.ValueTypeDAO;
-import Model.*;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import dataAccessObjects.AssetTypeDAO;
+import dataAccessObjects.ClassificationDAO;
+import dataAccessObjects.MaintenanceSchedDAO;
+import dataAccessObjects.ValueTypeDAO;
+import dataModel.*;
 
 /**
  *

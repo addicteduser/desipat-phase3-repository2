@@ -14,10 +14,10 @@ import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import DAO.AssetDAO;
-import DAO.assetHistoryDAO;
-import DAO.systemLogDAO;
-import Model.AssetModel;
+import dataAccessObjects.AssetDAO;
+import dataAccessObjects.assetHistoryDAO;
+import dataAccessObjects.systemLogDAO;
+import dataModel.AssetModel;
 
 /**
  *

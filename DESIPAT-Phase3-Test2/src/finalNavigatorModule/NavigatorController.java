@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import javax.swing.JLabel;
 
-import DAO.systemLogDAO;
+import dataAccessObjects.systemLogDAO;
 import finalAddModule.AddController;
 import finalAddModule.AddModel;
 import finalAddModule.AddView;

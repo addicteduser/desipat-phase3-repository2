@@ -4,8 +4,9 @@
  */
 package Strategy;
 
-import DB.DBFactory;
 import java.sql.Connection;
+
+import databaseConnection.DBFactory;
 
 /**
  *

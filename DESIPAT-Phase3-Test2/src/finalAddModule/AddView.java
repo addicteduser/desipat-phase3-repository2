@@ -4,8 +4,6 @@
  */
 package finalAddModule;
 
-import DAO.*;
-
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
@@ -21,6 +19,7 @@ import java.util.logging.Logger;
 
 import javax.swing.Timer;
 
+import dataAccessObjects.*;
 import finalUniveral.AbstractNavGUI;
 import finalUniveral.numericTextfield;
 

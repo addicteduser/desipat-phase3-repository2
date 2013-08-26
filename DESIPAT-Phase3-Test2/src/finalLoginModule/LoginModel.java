@@ -5,8 +5,8 @@ import java.sql.SQLException;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import DAO.UserDAO;
-import Model.UserModel;
+import dataAccessObjects.UserDAO;
+import dataModel.UserModel;
 
 /**
  * MODEL for Login

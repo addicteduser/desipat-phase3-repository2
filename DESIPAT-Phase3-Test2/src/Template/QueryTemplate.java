@@ -4,11 +4,13 @@
  */
 package Template;
 
-import DAO.DAO;
 import Strategy.ConnectionStrategy;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import dataAccessObjects.DAO;
 
 /**
  *

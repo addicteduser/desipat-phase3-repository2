@@ -4,11 +4,12 @@
  */
 package Template;
 
-import DAO.systemLogDAO;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+
+import dataAccessObjects.systemLogDAO;
 
 /**
  *

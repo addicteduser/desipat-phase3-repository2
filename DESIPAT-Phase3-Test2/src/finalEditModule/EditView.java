@@ -4,8 +4,6 @@
  */
 package finalEditModule;
 
-import DAO.*;
-import Model.*;
 import finalEditModule.EditController.Listener;
 import finalUniveral.AbstractNavGUI;
 import finalUniveral.numericTextfield;
@@ -17,6 +15,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import javax.swing.*;
+
+import dataAccessObjects.*;
+import dataModel.*;
 
 import java.util.ArrayList;
 import java.util.Calendar;

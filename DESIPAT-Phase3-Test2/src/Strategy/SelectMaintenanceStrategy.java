@@ -4,10 +4,10 @@
  */
 package Strategy;
 
-import Builder.SelectMaintenanceQueryBuilder;
-import Builder.SelectQueryBuilder;
-import Builder.SelectQueryDirector;
-import Builder.SelectQueryString;
+import queryBuilder.SelectMaintenanceQueryBuilder;
+import queryBuilder.SelectQueryBuilder;
+import queryBuilder.SelectQueryDirector;
+import queryBuilder.SelectQueryString;
 
 /**
  *

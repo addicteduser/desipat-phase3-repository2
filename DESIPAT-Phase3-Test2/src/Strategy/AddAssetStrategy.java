@@ -4,10 +4,10 @@
  */
 package Strategy;
 
-import Builder.AddAssetQueryBuilder;
-import Builder.AddQueryBuilder;
-import Builder.AddQueryDirector;
-import Builder.AddQueryString;
+import queryBuilder.AddAssetQueryBuilder;
+import queryBuilder.AddQueryBuilder;
+import queryBuilder.AddQueryDirector;
+import queryBuilder.AddQueryString;
 
 /**
  *

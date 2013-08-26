@@ -2,7 +2,7 @@ package finalNavigatorModule;
 
 import java.sql.SQLException;
 
-import DAO.UserDAO;
+import dataAccessObjects.UserDAO;
 
 /**
  * MODEL for Navigator

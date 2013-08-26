@@ -4,9 +4,6 @@
  */
 package finalDeleteModule;
 
-import DAO.*;
-import Model.*;
-
 import java.awt.Color;
 import java.awt.ComponentOrientation;
 import java.awt.Font;
@@ -16,6 +13,8 @@ import java.sql.*;
 
 import javax.swing.*;
 
+import dataAccessObjects.*;
+import dataModel.*;
 import finalLoginModule.LoginView;
 import finalUniveral.AbstractNavGUI;
 

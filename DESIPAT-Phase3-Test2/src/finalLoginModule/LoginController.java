@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
-import DAO.systemLogDAO;
+import dataAccessObjects.systemLogDAO;
 import finalNavigatorModule.NavigatorController;
 import finalNavigatorModule.NavigatorModel;
 import finalNavigatorModule.NavigatorView;
