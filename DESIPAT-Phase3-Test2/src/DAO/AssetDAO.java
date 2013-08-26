@@ -193,11 +193,12 @@ public class AssetDAO extends DAO {
     public ArrayList<String> getAllAssetNames() throws SQLException {
         ArrayList<String> assetName = new ArrayList<String>();
         Connection connection = getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement("select assetName from asset order by assetName");
+        PreparedStatement preparedStatement = connection.prepareStatement("select assetName from assetreg.asset order by assetName");
         ResultSet resultSet = query(preparedStatement);
         while (resultSet.next()) {
             
-            assetName.add(resultSet.getString("assetName"));
+            System.out.println(resultSet.getString("assetName"));
+        	assetName.add(resultSet.getString("assetName"));
             
       }
         return assetName;

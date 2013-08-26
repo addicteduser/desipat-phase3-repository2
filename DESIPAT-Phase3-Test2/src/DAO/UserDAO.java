@@ -27,8 +27,7 @@ public class UserDAO extends DAO {
 
 	public UserModel getUser(String username) throws SQLException {
 		Connection connection = getConnection();
-		PreparedStatement preparedStatement = connection
-				.prepareStatement("select * from users where username = ?");
+		PreparedStatement preparedStatement = connection.prepareStatement("select * from users where username = ?");
 		preparedStatement.setString(1, username);
 		ResultSet resultSet = query(preparedStatement);
 		UserModel umdl = new UserModel();

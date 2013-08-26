@@ -86,7 +86,6 @@ public class DeleteView extends GUI{
     @Override
     public void setBounds() {
         bg.setBounds(0, 0, bg.getIcon().getIconWidth(), bg.getIcon().getIconHeight());
-        assetList.setSelectedIndex(0);
         lblAsset.setBounds(50, 150, 167, 23);
         lblUser.setBounds(500, 150, 167, 23);
        
@@ -129,8 +128,6 @@ public class DeleteView extends GUI{
     public void makePanel() {
         try {
             initialize();
-            //updateAssetsList();
-            //updateUsersList();
             setBounds();
             setPanelSize();
             addToPanel();

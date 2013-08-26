@@ -9,7 +9,7 @@ import DAO.UserDAO;
 import Model.UserModel;
 
 public class DeleteModel {
-	ArrayList<String> assetName;
+	ArrayList<String> assetName = new ArrayList<String>();
 	List<UserModel> usermdl;
 	AssetDAO adao = AssetDAO.getInstance();
 	UserDAO udao = UserDAO.getInstance();

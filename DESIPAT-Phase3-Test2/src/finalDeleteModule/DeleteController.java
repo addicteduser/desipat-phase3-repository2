@@ -19,15 +19,19 @@ public class DeleteController {
 		this.deleteView = view;
 		this.deleteModel = model;
 		
-		updateAssetsList();
-        try {
+		try {
+			deleteModel.getAllAsset();
+			deleteModel.getAllUserModel();
+			
+			updateAssetsList();
 			updateUsersList();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Database is empty!");
 		}
-
-		this.deleteView.addBtnDelAssetListener(new DeleteAssetListener());
+		
+        this.deleteView.addBtnDelAssetListener(new DeleteAssetListener());
 		this.deleteView.addBtnDelUserListener(new DeleteUserListener());
 	}
 
@@ -77,6 +81,9 @@ public class DeleteController {
 
 			deleteModel.adao.deleteAsset(selectedItem);
 			deleteView.getAssetList().removeAllItems();
+			
+			deleteModel.getAllAsset();
+
 			updateAssetsList();
 			systemLogDAO.getInstance().saveAccess(
 					"Deleted asset " + selectedItem,
@@ -99,6 +106,9 @@ public class DeleteController {
 			else
 				deleteModel.udao.deleteUser(selectedItem);
 			deleteView.getUserList().removeAllItems();
+			
+			deleteModel.getAllUserModel();
+			
 			updateUsersList();
 			systemLogDAO.getInstance().saveAccess(
 					"Deleted user " + selectedItem,
