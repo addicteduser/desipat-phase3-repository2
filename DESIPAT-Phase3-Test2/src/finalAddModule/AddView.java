@@ -21,7 +21,8 @@ import java.util.logging.Logger;
 
 import javax.swing.Timer;
 
-import abstractPanel.AbstractNavGUI;
+import finalUniveral.AbstractNavGUI;
+import finalUniveral.numericTextfield;
 
 /**
  *
@@ -257,10 +258,10 @@ public class AddView extends AbstractNavGUI implements ActionListener {
         });
 
         setAddassetIcon(new ImageIcon[2]);
-        getAddassetIcon()[0] = new ImageIcon(this.getClass().getClassLoader().getResource("pictures/addasset.png"));
-        getAddassetIcon()[1] = new ImageIcon(this.getClass().getClassLoader().getResource("pictures/addasset.png"));
+        getAddassetIcon()[0] = new ImageIcon(this.getClass().getClassLoader().getResource("finalAddModule/addasset.png"));
+        getAddassetIcon()[1] = new ImageIcon(this.getClass().getClassLoader().getResource("finalAddModule/addasset.png"));
 
-        bg = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("pictures/addassetbg.png")));
+        bg = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("finalAddModule/addassetbg.png")));
 
         addasset = new JLabel(getAddassetIcon()[0]);
         successful = new JLabel("The asset has been successfully added!");

@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import abstractPanel.AbstractViewNavPanel;
+import finalUniveral.AbstractViewNavPanel;
 /**
  *
  * @author Aram
@@ -84,8 +84,8 @@ public class ViewBySystemLog extends AbstractViewNavPanel implements ActionListe
 
 	@Override
 	public void initialize() {
-		nextIcon = new ImageIcon(this.getClass().getClassLoader().getResource("pictures/next.png"));
-		backIcon = new ImageIcon(this.getClass().getClassLoader().getResource("pictures/back.png"));
+		nextIcon = new ImageIcon(this.getClass().getClassLoader().getResource("finalViewModule/next.png"));
+		backIcon = new ImageIcon(this.getClass().getClassLoader().getResource("finalViewModule/back.png"));
 		// ADD dates in combox
 		try {
 			ArrayList<SystemLogModel> slmdl = systemLogDAO.getInstance().getAllDates();
@@ -97,10 +97,10 @@ public class ViewBySystemLog extends AbstractViewNavPanel implements ActionListe
 		}
 
 
-		bg = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("pictures/systemlogbg.jpg")));
-		systemlogBG = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("pictures/systemlogbg.jpg")));
-		viewlog = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("pictures/view.png")));
-		viewsystemlog = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("pictures/viewsystemlog.png")));
+		bg = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("finalViewModule/systemlogbg.jpg")));
+		systemlogBG = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("finalViewModule/systemlogbg.jpg")));
+		viewlog = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("finalViewModule/view.png")));
+		viewsystemlog = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("finalViewModule/viewsystemlog.png")));
 		try {
 			count = getDateCount();
 		} catch (SQLException ex) {

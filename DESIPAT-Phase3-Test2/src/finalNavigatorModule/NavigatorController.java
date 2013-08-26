@@ -13,6 +13,9 @@ import finalAddModule.AddView;
 import finalDeleteModule.DeleteController;
 import finalDeleteModule.DeleteModel;
 import finalDeleteModule.DeleteView;
+import finalEditModule.EditController;
+import finalEditModule.EditModel;
+import finalEditModule.EditView;
 import finalLoginModule.LoginController;
 import finalLoginModule.LoginModel;
 import finalLoginModule.LoginView;
@@ -28,6 +31,7 @@ public class NavigatorController {
 	
 	private AddController addCon;
 	private DeleteController delCon;
+	private EditController editCon;
 	private ViewNavigatorController viewNavCon;
 
 	public NavigatorController(NavigatorView view, NavigatorModel model) {
@@ -59,6 +63,8 @@ public class NavigatorController {
 				navView.changeCurrentPanel(addCon.getAddView(), navView.getBtnAddAsset());
 			} else if (e.getSource() == navView.getBtnEditAsset()) {
 				System.out.println("Edit");
+				editCon = new EditController(new EditModel(), new EditView(), navModel.getUsername());
+				navView.changeCurrentPanel(editCon.getEditView(), navView.getBtnEditAsset());
 			} else if (e.getSource() == navView.getBtnDeleteAsset()) {
 				System.out.println("Delete");
 				delCon = new DeleteController(new DeleteView(navModel.getUsertype(), navModel.getUsername()), new DeleteModel());

@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import abstractPanel.AbstractViewNavPanel;
+import finalUniveral.AbstractViewNavPanel;
 /**
  *
  * @author Aram
@@ -90,8 +90,8 @@ public class ViewByAssetHistory extends AbstractViewNavPanel implements ActionLi
 	public void initialize() {
 
 
-		nextIcon = new ImageIcon(this.getClass().getClassLoader().getResource("pictures/next.png"));
-		backIcon = new ImageIcon(this.getClass().getClassLoader().getResource("pictures/back.png"));
+		nextIcon = new ImageIcon(this.getClass().getClassLoader().getResource("finalViewModule/next.png"));
+		backIcon = new ImageIcon(this.getClass().getClassLoader().getResource("finalViewModule/back.png"));
 
 		// ADD ASSET names IN COMBOBOX
 		try {
@@ -105,10 +105,10 @@ public class ViewByAssetHistory extends AbstractViewNavPanel implements ActionLi
 
 
 
-		bg = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("pictures/assethistorybg.jpg")));
-		viewhistory = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("pictures/view.png")));
-		viewassethistory = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("pictures/viewassethistory.png")));
-		assethistoryBG = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("pictures/assethistorybg.jpg")));
+		bg = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("finalViewModule/assethistorybg.jpg")));
+		viewhistory = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("finalViewModule/view.png")));
+		viewassethistory = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("finalViewModule/viewassethistory.png")));
+		assethistoryBG = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("finalViewModule/assethistorybg.jpg")));
 		try {
 			count = getItemCount();
 		} catch (SQLException ex) {

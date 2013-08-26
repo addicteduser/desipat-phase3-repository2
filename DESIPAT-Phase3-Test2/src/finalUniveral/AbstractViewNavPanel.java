@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package abstractPanel;
+package finalUniveral;
 
 import java.sql.SQLException;
 import javax.swing.JPanel;

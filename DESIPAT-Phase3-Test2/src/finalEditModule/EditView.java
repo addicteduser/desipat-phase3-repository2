@@ -4,18 +4,20 @@
  */
 package finalEditModule;
 
-import DAO.ValueTypeDAO;
 import DAO.*;
 import Model.*;
-import assetreg.GUI;
-import assetreg.numericTextfield;
 import finalEditModule.EditController.Listener;
+import finalUniveral.AbstractNavGUI;
+import finalUniveral.numericTextfield;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+
 import javax.swing.*;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.logging.Level;
@@ -28,7 +30,7 @@ import java.util.ResourceBundle;
  *
  * @author JT
  */
-public class EditView extends GUI implements ActionListener {
+public class EditView extends AbstractNavGUI implements ActionListener {
 
     protected JLabel bg;
     private JLabel editasset;
@@ -860,7 +862,7 @@ public class EditView extends GUI implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        //throw new UnsupportedOperationException("Not supported yet.");
     }
 
     /**

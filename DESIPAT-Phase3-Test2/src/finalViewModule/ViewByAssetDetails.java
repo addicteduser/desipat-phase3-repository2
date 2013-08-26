@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import abstractPanel.AbstractViewNavPanel;
+import finalUniveral.AbstractViewNavPanel;
 
 /**
  *
@@ -94,8 +94,8 @@ public class ViewByAssetDetails extends AbstractViewNavPanel implements ActionLi
     public void initialize() {
         
         
-         nextIcon = new ImageIcon(this.getClass().getClassLoader().getResource("pictures/next.png"));
-         backIcon = new ImageIcon(this.getClass().getClassLoader().getResource("pictures/back.png"));
+         nextIcon = new ImageIcon(this.getClass().getClassLoader().getResource("finalViewModule/next.png"));
+         backIcon = new ImageIcon(this.getClass().getClassLoader().getResource("finalViewModule/back.png"));
          
          // ADD ASSET names IN COMBOBOX
         try {
@@ -109,10 +109,10 @@ public class ViewByAssetDetails extends AbstractViewNavPanel implements ActionLi
         }
      
     
-         bg = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("pictures/assetdetailsbg.jpg")));
-         assetdetailsBG = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("pictures/assetdetailsbg.jpg")));
-        view = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("pictures/view.png")));
-        viewassetdetails = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("pictures/viewassetdetails.png")));
+         bg = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("finalViewModule/assetdetailsbg.jpg")));
+         assetdetailsBG = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("finalViewModule/assetdetailsbg.jpg")));
+        view = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("finalViewModule/view.png")));
+        viewassetdetails = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("finalViewModule/viewassetdetails.png")));
 
       
          current = 0;

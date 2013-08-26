@@ -1,4 +1,4 @@
-package abstractPanel;
+package finalUniveral;
 
 import java.sql.SQLException;
 import javax.swing.JPanel;

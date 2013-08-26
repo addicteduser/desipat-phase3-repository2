@@ -216,4 +216,8 @@ public class EditController {
     public void actionPerformed(ActionEvent e) {
         JComboBox cb = (JComboBox) e.getSource();
     }
+    
+    public EditView getEditView() {
+    	return view;
+    }
 }

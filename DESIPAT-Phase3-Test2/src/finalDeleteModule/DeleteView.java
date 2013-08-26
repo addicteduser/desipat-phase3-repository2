@@ -16,8 +16,8 @@ import java.sql.*;
 
 import javax.swing.*;
 
-import abstractPanel.AbstractNavGUI;
 import finalLoginModule.LoginView;
+import finalUniveral.AbstractNavGUI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +68,7 @@ public class DeleteView extends AbstractNavGUI{
     // UI INITIALIZATIONS
     @Override
     public void initialize() throws ClassNotFoundException, SQLException {
-        bg = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("pictures/deletebg.png")));
+        bg = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("finalDeleteModule/deletebg.png")));
 
 
         lblAsset = new JLabel("Delete Asset");
