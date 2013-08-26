@@ -113,8 +113,6 @@ public class ViewByAssetHistory extends AbstractViewNavPanel implements ActionLi
 		}
 		current = 0;
 
-		//System.out.println(count);
-
 		next = new JLabel(nextIcon);
 		back = new JLabel(backIcon);
 
@@ -125,11 +123,8 @@ public class ViewByAssetHistory extends AbstractViewNavPanel implements ActionLi
 		namelist.setVisible(true);
 		viewhistory.setVisible(true);
 
-
 		namelist.setSelectedIndex(0);
 		namelist.addActionListener(this);
-		// namelist.setVisible(false);
-		// viewhistory.setVisible(false);
 
 		itemsFont = new Font("Calibri", Font.BOLD, 20);
 
@@ -149,9 +144,6 @@ public class ViewByAssetHistory extends AbstractViewNavPanel implements ActionLi
 		viewassethistory.setBounds(475, 23, viewassethistory.getIcon().getIconWidth(), viewassethistory.getIcon().getIconHeight());
 		namelist.setBounds(400, 24, 150, 30);
 		viewhistory.setBounds(570, 30,viewhistory.getIcon().getIconWidth(), viewhistory.getIcon().getIconHeight());
-
-		//  throw new UnsupportedOperationException("Not supported yet.");
-
 	}
 
 	@Override
@@ -159,16 +151,10 @@ public class ViewByAssetHistory extends AbstractViewNavPanel implements ActionLi
 		Panel.setSize(bg.getIcon().getIconWidth(), bg.getIcon().getIconHeight());
 		Panel.setLayout(null);
 		Panel.setVisible(true);
-
-		//throw new UnsupportedOperationException("Not supported yet.");
-
 	}
 
 	@Override
 	public void addToFrame() {
-		//    Panel.add(bg);
-		//  Panel.add(assethistoryBG);
-
 		Panel.add(back);
 		Panel.add(next);
 
@@ -176,9 +162,6 @@ public class ViewByAssetHistory extends AbstractViewNavPanel implements ActionLi
 		Panel.add(viewhistory);
 		Panel.add(assethistoryBG);
 		Panel.add(bg);
-
-		//  throw new UnsupportedOperationException("Not supported yet.");
-
 	}
 
 
@@ -190,7 +173,7 @@ public class ViewByAssetHistory extends AbstractViewNavPanel implements ActionLi
 			Logger.getLogger(ViewByAssetHistory.class.getName()).log(Level.SEVERE, null, ex);
 		}
 		try {
-			systemLogDAO.getInstance().saveAccess("Viewed " + namelist.getSelectedItem().toString() + "'s history", username);
+			SystemLogDAO.getInstance().saveAccess("Viewed " + namelist.getSelectedItem().toString() + "'s history", username);
 		} catch (SQLException ex) {
 			Logger.getLogger(ViewByAssetHistory.class.getName()).log(Level.SEVERE, null, ex);
 		}
@@ -202,27 +185,18 @@ public class ViewByAssetHistory extends AbstractViewNavPanel implements ActionLi
 		} catch (SQLException ex) {
 			Logger.getLogger(ViewByAssetHistory.class.getName()).log(Level.SEVERE, null, ex);
 		}
-
-
-
-		//   throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//  throw new UnsupportedOperationException("Not supported yet.");
+
 	}
 
 	private int getItemCount() throws SQLException {
-
-
 		return assetHistoryDAO.getInstance().getAssetHistory(namelist.getSelectedItem().toString()).size();
 	}
 
-
 	private void viewAssetHistoryItems() throws SQLException {
-
-
 		ahmdl = assetHistoryDAO.getInstance().getAssetHistory(namelist.getSelectedItem().toString());
 		count = 0;
 		count = getItemCount();
@@ -231,13 +205,11 @@ public class ViewByAssetHistory extends AbstractViewNavPanel implements ActionLi
 		assetOwner1 = new JLabel[count];
 		dateAcquired1 = new JLabel[count];
 
-		// ArrayList<AssetModel> amdl = adao.getAssetHistory(namelist.getSelectedItem().toString());
 		for (int i = 0; i < count; i++) {
 
 			assetName1[i] = new JLabel(ahmdl.get(i).getAssetName());
 			assetOwner1[i] = new JLabel(ahmdl.get(i).getAssetOwner());
 			dateAcquired1[i] = new JLabel(ahmdl.get(i).getDateAcquired().toString());
-
 
 			assetName1[i].setFont(itemsFont);
 			assetOwner1[i].setFont(itemsFont);
@@ -259,8 +231,6 @@ public class ViewByAssetHistory extends AbstractViewNavPanel implements ActionLi
 		}
 
 		setAssetHistoryVisible();
-		//  track++;
-
 	}
 
 
@@ -271,11 +241,9 @@ public class ViewByAssetHistory extends AbstractViewNavPanel implements ActionLi
 			this.panelbutton.setEnabled(true);
 		}
 
-
 		this.panel = panel;
 		this.Panel = panel;
 		Panel.add(panel);
-		// this.add(Panel);
 		this.panel.setBounds(0, bg.getIcon().getIconHeight(), panel.getWidth(), panel.getHeight());
 		this.panelbutton = panelbutton;
 		panelbutton.removeMouseListener(l);
@@ -284,8 +252,6 @@ public class ViewByAssetHistory extends AbstractViewNavPanel implements ActionLi
 
 
 	private void setAssetHistoryBounds(JLabel assetName1, JLabel assetOwner1, JLabel dateAcquired1, int i){
-
-
 		switch (i % 5) {
 		case 0:
 			assetName1.setBounds(97,100,500,30);
@@ -314,9 +280,7 @@ public class ViewByAssetHistory extends AbstractViewNavPanel implements ActionLi
 			break;
 		}
 
-
 		assethistoryBG.setBounds(0, 0, assethistoryBG.getIcon().getIconWidth(), assethistoryBG.getIcon().getIconHeight());
-
 
 	}
 
@@ -333,15 +297,10 @@ public class ViewByAssetHistory extends AbstractViewNavPanel implements ActionLi
 				assetOwner1[i].setVisible(true);
 				dateAcquired1[i].setVisible(true);
 			}
-
 		}
-
 	}
 
 	public class Listener implements MouseListener {
-
-
-
 		@Override
 		public void mouseClicked(MouseEvent e) {
 		}
@@ -350,9 +309,7 @@ public class ViewByAssetHistory extends AbstractViewNavPanel implements ActionLi
 		public void mousePressed(MouseEvent e) throws NullPointerException {
 
 			if(e.getSource() == viewhistory){
-
 				viewResults();
-
 			}
 
 			if (e.getSource() == next) {
@@ -366,7 +323,6 @@ public class ViewByAssetHistory extends AbstractViewNavPanel implements ActionLi
 					setAssetHistoryVisible();
 				}
 			} 
-
 		}
 
 		@Override
@@ -382,12 +338,5 @@ public class ViewByAssetHistory extends AbstractViewNavPanel implements ActionLi
 		public void mouseExited(MouseEvent e) {
 
 		}
-
-
-
-
 	}
-
-
-
 }

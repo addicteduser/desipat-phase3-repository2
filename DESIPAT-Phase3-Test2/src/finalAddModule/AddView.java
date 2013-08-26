@@ -17,7 +17,7 @@ import javax.swing.Timer;
 
 import dataAccessObjects.*;
 import finalUniveral.AbstractNavGUI;
-import finalUniveral.numericTextfield;
+import finalUniveral.NumericTextfield;
 
 /**
  *
@@ -33,7 +33,7 @@ public class AddView extends AbstractNavGUI implements ActionListener {
 	private JTextField assetName;
 	private JTextField assetOwner;
 	private JTextField assetCustodian;
-	private numericTextfield financial;
+	private NumericTextfield financial;
 	private JTextField storageLocation;
 	MouseListener l;
 	private Timer t = new Timer(100, new ActionListener() {
@@ -135,7 +135,7 @@ public class AddView extends AbstractNavGUI implements ActionListener {
 	@Override
 	public void initialize() throws ClassNotFoundException, SQLException {
 
-		financial = new numericTextfield();
+		financial = new NumericTextfield();
 
 		// ADD ASSET TYPES IN COMBOBOX
 		try {
@@ -448,7 +448,7 @@ public class AddView extends AbstractNavGUI implements ActionListener {
 	/**
 	 * @return the financial
 	 */
-	public numericTextfield getFinancial() {
+	public NumericTextfield getFinancial() {
 		return financial;
 	}
 

@@ -1,7 +1,6 @@
 package finalViewModule;
 
 import java.awt.event.MouseListener;
-import java.sql.Connection;
 import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
@@ -76,8 +75,6 @@ public class ViewNavigatorView extends JPanel {
 		viewassethistory.setBounds(475, 23, viewassethistory.getIcon().getIconWidth(), viewassethistory.getIcon().getIconHeight());
 		viewassetdetails.setBounds(275, 23, viewassetdetails.getIcon().getIconWidth(), viewassetdetails.getIcon().getIconHeight());
 		viewsystemlog.setBounds(690, 23, viewsystemlog.getIcon().getIconWidth(), viewsystemlog.getIcon().getIconHeight());
-
-
 	}
 
 	private void setFrame() {
@@ -89,8 +86,6 @@ public class ViewNavigatorView extends JPanel {
 		if(!(isAdmin(usertype))){
 			viewassethistory.setVisible(false);
 			viewsystemlog.setVisible(false);
-
-
 		}
 
 		this.add(viewassetdetails);
@@ -99,7 +94,6 @@ public class ViewNavigatorView extends JPanel {
 		this.add(viewsystemlog);
 
 		this.add(bg);
-
 	}
 
 	public void setExitIcons(){
@@ -121,12 +115,12 @@ public class ViewNavigatorView extends JPanel {
 		this.currentButton = panelbutton;
 		this.setSize(890, 690);
 	}
-	
+
 	public void addButtonListeners(MouseListener listener) {
 		viewassethistory.addMouseListener(listener);
 		viewassetdetails.addMouseListener(listener);
 		viewsystemlog.addMouseListener(listener);
-    }
+	}
 
 	public JLabel getBg() {
 		return bg;
@@ -171,6 +165,4 @@ public class ViewNavigatorView extends JPanel {
 	public JLabel getCurrentButton() {
 		return currentButton;
 	}
-
-
 }

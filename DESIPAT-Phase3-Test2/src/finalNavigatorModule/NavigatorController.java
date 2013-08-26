@@ -58,19 +58,15 @@ public class NavigatorController {
 
 			//implement changeCurrentPanel here
 			if (e.getSource() == navView.getBtnAddAsset()) {
-				System.out.println("Add");
 				addCon = new AddController(new AddModel(), new AddView(), navModel.getUsername());
 				navView.changeCurrentPanel(addCon.getAddView(), navView.getBtnAddAsset());
 			} else if (e.getSource() == navView.getBtnEditAsset()) {
-				System.out.println("Edit");
 				editCon = new EditController(new EditModel(), new EditView(), navModel.getUsername());
 				navView.changeCurrentPanel(editCon.getEditView(), navView.getBtnEditAsset());
 			} else if (e.getSource() == navView.getBtnDeleteAsset()) {
-				System.out.println("Delete");
 				delCon = new DeleteController(new DeleteView(navModel.getUsertype(), navModel.getUsername()), new DeleteModel());
 				navView.changeCurrentPanel(delCon.getDeleteView(), navView.getBtnDeleteAsset());
 			} else if (e.getSource() == navView.getBtnViewAsset()) {
-				System.out.println("View");
 				viewNavCon = new ViewNavigatorController(new ViewNavigatorView(navModel.getUsertype(), navModel.getUsername()));
 				navView.changeCurrentPanel(viewNavCon.getViewNavView(), navView.getBtnViewAsset());
 			} else if (e.getSource() == navView.getBtnLogout()){

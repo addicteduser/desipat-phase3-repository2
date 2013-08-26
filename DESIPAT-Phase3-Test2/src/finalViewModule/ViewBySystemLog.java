@@ -1,11 +1,11 @@
 package finalViewModule;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.sql.*;
 
 import javax.swing.*;
 
@@ -71,7 +71,7 @@ public class ViewBySystemLog extends AbstractViewNavPanel implements ActionListe
 	public void setPanel(JPanel Panel){
 		this.Panel = Panel;
 	}
-	
+
 	private String user;
 
 	public ViewBySystemLog(String username) {
@@ -85,7 +85,7 @@ public class ViewBySystemLog extends AbstractViewNavPanel implements ActionListe
 		backIcon = new ImageIcon(this.getClass().getClassLoader().getResource("finalViewModule/back.png"));
 		// ADD dates in combox
 		try {
-			ArrayList<SystemLogModel> slmdl = systemLogDAO.getInstance().getAllDates();
+			ArrayList<SystemLogModel> slmdl = SystemLogDAO.getInstance().getAllDates();
 			for (int i = 0; i < slmdl.size(); i++) {
 				datelist.addItem(slmdl.get(i).getDate());
 			}
@@ -123,8 +123,6 @@ public class ViewBySystemLog extends AbstractViewNavPanel implements ActionListe
 		viewlog.addMouseListener(l);
 		next.addMouseListener(l);
 		back.addMouseListener(l);
-
-		// throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
@@ -135,8 +133,6 @@ public class ViewBySystemLog extends AbstractViewNavPanel implements ActionListe
 		back.setBounds(650, 350, back.getIcon().getIconWidth(), back.getIcon().getIconHeight());
 		datelist.setBounds(400, 24, 150, 30);
 		viewlog.setBounds(570, 30,viewlog.getIcon().getIconWidth(), viewlog.getIcon().getIconHeight());
-
-		//   throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
@@ -144,8 +140,6 @@ public class ViewBySystemLog extends AbstractViewNavPanel implements ActionListe
 		Panel.setSize(bg.getIcon().getIconWidth(), bg.getIcon().getIconHeight());
 		Panel.setLayout(null);
 		Panel.setVisible(true);
-
-		//  throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
@@ -161,8 +155,6 @@ public class ViewBySystemLog extends AbstractViewNavPanel implements ActionListe
 		Panel.add(bg);
 
 		systemlogBG.setVisible(false);
-
-		// throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 
@@ -170,18 +162,15 @@ public class ViewBySystemLog extends AbstractViewNavPanel implements ActionListe
 		viewlog.setVisible(false);
 		try {
 			count = getDateCount();
-			//System.out.println(count2);
 		} catch (SQLException ex) {
 			Logger.getLogger(ViewBySystemLog.class.getName()).log(Level.SEVERE, null, ex);
 		}
 		try {
 			viewSystemLogItems();
-			systemLogDAO.getInstance().saveAccess("Viewed system log", user);
+			SystemLogDAO.getInstance().saveAccess("Viewed system log", user);
 		} catch (SQLException ex ) {
 			Logger.getLogger(ViewBySystemLog.class.getName()).log(Level.SEVERE, null, ex);
 		}
-		//    setAssetHistoryNotVisible();
-		//  setAssetDetailsNotVisible();
 		back.setVisible(true);
 		next.setVisible(true);
 		try {
@@ -189,36 +178,23 @@ public class ViewBySystemLog extends AbstractViewNavPanel implements ActionListe
 		} catch (SQLException ex) {
 			Logger.getLogger(ViewBySystemLog.class.getName()).log(Level.SEVERE, null, ex);
 		}
-
-		//   throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 
 	private int getDateCount() throws SQLException {
-
-		return systemLogDAO.getInstance().getDateContent(datelist.getSelectedItem().toString()).size();
-		// return slDAO.getAllDates().size();
+		return SystemLogDAO.getInstance().getDateContent(datelist.getSelectedItem().toString()).size();
 	}
 
 
 	private void viewSystemLogItems() throws SQLException {
-		//  this.add(datelist);
-		slmdl = systemLogDAO.getInstance().getDateContent(datelist.getSelectedItem().toString());
-
-		// count = 0;
+		slmdl = SystemLogDAO.getInstance().getDateContent(datelist.getSelectedItem().toString());
 		count = getDateCount();
-		//  System.out.println(count);
 
 		access = new JLabel[count];
 		username = new JLabel[count];
 		date = new JLabel[count];
 
-		// System.out.println(slmdl.size());
-		// ArrayList<AssetModel> amdl = adao.getAssetHistory(namelist.getSelectedItem().toString());
 		for (int i = 0; i < count; i++) {
-
-
-
 			access[i] = new JLabel(slmdl.get(i).getAccess());
 			username[i] = new JLabel(slmdl.get(i).getUsername());
 			date[i] = new JLabel(slmdl.get(i).getDate().toString());
@@ -254,7 +230,6 @@ public class ViewBySystemLog extends AbstractViewNavPanel implements ActionListe
 			this.panelbutton.setEnabled(true);
 		}
 
-
 		this.panel = panel;
 		Panel.add(panel);
 		this.panel.setBounds(0, bg.getIcon().getIconHeight(), panel.getWidth(), panel.getHeight());
@@ -265,7 +240,6 @@ public class ViewBySystemLog extends AbstractViewNavPanel implements ActionListe
 
 
 	private void setSystemLogBounds(JLabel access, JLabel username, JLabel date, int i){
-
 
 		switch (i % 5) {
 		case 0:
@@ -297,8 +271,6 @@ public class ViewBySystemLog extends AbstractViewNavPanel implements ActionListe
 		}
 
 		systemlogBG.setBounds(0, 0, systemlogBG.getIcon().getIconWidth(), systemlogBG.getIcon().getIconHeight());
-
-
 	}
 
 
@@ -315,15 +287,10 @@ public class ViewBySystemLog extends AbstractViewNavPanel implements ActionListe
 				username[i].setVisible(true);
 				date[i].setVisible(true);
 			}
-
 		}
-
-
 	}
 
 	public class Listener implements MouseListener {
-
-
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
@@ -331,10 +298,6 @@ public class ViewBySystemLog extends AbstractViewNavPanel implements ActionListe
 
 		@Override
 		public void mousePressed(MouseEvent e) throws NullPointerException {
-
-
-
-
 
 			if(e.getSource() == viewlog){
 				viewResults();
@@ -351,12 +314,7 @@ public class ViewBySystemLog extends AbstractViewNavPanel implements ActionListe
 					setSystemLogVisible();
 				}
 			} 
-
-
 		}
-
-
-
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
@@ -365,25 +323,17 @@ public class ViewBySystemLog extends AbstractViewNavPanel implements ActionListe
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
-			//      if (e.getSource() == viewassetdetails) {
-				//       viewassetdetails.setIcon(assetDetailsIcon[1]);
-				//    } 
 
 		}
 		@Override
 		public void mouseExited(MouseEvent e) {
-			//    if (e.getSource() == viewassetdetails) {
-				//    viewassetdetails.setIcon(assetDetailsIcon[0]);
-				//   }
 
 		}
-
-
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//   throw new UnsupportedOperationException("Not supported yet.");
+
 	}
 
 }
