@@ -5,6 +5,7 @@
 package finalAddModule;
 
 import DAO.*;
+import assetreg.numericTextfield;
 
 import java.awt.*;
 import java.awt.event.*;

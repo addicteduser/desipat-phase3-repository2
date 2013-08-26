@@ -4,6 +4,7 @@
  */
 package finalAddModule;
 
+import assetreg.DateUtil;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -69,4 +70,29 @@ public class AddModel {
     public void setRetentionPeriodToSQL(java.sql.Date retentionPeriodToSQL) {
         this.retentionPeriodToSQL = retentionPeriodToSQL;
     }
+    
+  
+    public java.sql.Date parseDateAcquired(JComboBox dateAcquiredDay, JComboBox dateAcquiredMonth, JComboBox dateAcquiredYear){
+        String stringDate1;
+      
+
+        //stringDate1 = dateAcquiredMonth.getSelectedItem().toString() + " " +dateAcquiredDay.getSelectedItem().toString() + ", " + dateAcquiredYear.getSelectedItem().toString();
+        stringDate1 = dateAcquiredDay.getSelectedItem().toString() + "-" + Integer.toString(dateAcquiredMonth.getSelectedIndex()+1) + "-" + dateAcquiredYear.getSelectedItem().toString();
+       
+        java.sql.Date sqlDate = null;
+        try {
+
+           Date dateAcquired = new SimpleDateFormat("dd-MM-yyyy").parse(stringDate1);
+           sqlDate = DateUtil.utilDateToSqlDate(dateAcquired);
+          
+        } catch (ParseException ex) {
+          Logger.getLogger(AddView.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        
+         return sqlDate;
+       // checkDate(dateAcquired, retentionDate); 
+
+    }
+
 }

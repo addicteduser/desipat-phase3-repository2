@@ -36,10 +36,10 @@ public class AddController {
 
         view.setDateAcquiredYear(view.populateYear(view.getDateAcquiredYear(), Calendar.getInstance().get(Calendar.YEAR)));
         initListeners();
-        
+
     }
 
-    public void initListeners(){
+    public void initListeners() {
         view.setListener(new btnAddListener());
         view.setAddAssetBtnListener(new btnAddListener());
         view.setDateAcquiredYearListener(new cbDateYearListener());
@@ -49,6 +49,7 @@ public class AddController {
         view.setDateRetentionMonthListener(new cbDateMonthListener());
         view.setDateRetentionDayListener(new cbDateDayListener());
     }
+
     public class cbDateYearListener implements ActionListener {
 
         @Override
@@ -90,20 +91,17 @@ public class AddController {
 
         @Override
         public void mousePressed(MouseEvent e) {
-        	if (e.getSource() == view.getAddasset()) {
-        		System.out.println("i work!!!");
-        	}
+            if (e.getSource() == view.getAddasset()) {
+                System.out.println("i work!!!");
+            }
 
             if (e.getSource() == view.getAddasset() && view.blankCheck()) {
 
-                try {
-                    model.setDateAcquiredSQL(DateUtil.utilDateToSqlDate(model.getDateAcquiredSQL()));
-                    model.setRetentionPeriodFromSQL(model.getDateAcquiredSQL());
-                    model.setRetentionPeriodToSQL(DateUtil.utilDateToSqlDate(view.getRetentionDate()));
 
-                } catch (ParseException ex) {
-                    Logger.getLogger(AddView.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                model.setDateAcquiredSQL(model.parseDateAcquired(view.getDateAcquiredDay(), view.getDateAcquiredMonth(), view.getDateAcquiredYear()));
+                model.setRetentionPeriodFromSQL(model.getDateAcquiredSQL());
+                model.setRetentionPeriodToSQL(model.parseDateAcquired(view.getRetentionPeriodToDay(), view.getRetentionPeriodToMonth(), view.getRetentionPeriodToYear()));
+                view.checkDate(model.getDateAcquiredSQL(), model.getRetentionPeriodToSQL());
 
                 AssetModel.getInstance().setAssetname(view.getAssetName().getText());
                 AssetModel.getInstance().setAssetowner(view.getAssetOwner().getText());
@@ -179,18 +177,17 @@ public class AddController {
 
         @Override
         public void mouseClicked(MouseEvent me) {
-        	
         }
     }
-    
+
     /*
      * GET COMPONENTS
      */
     public AddView getAddView() {
-    	return view;
+        return view;
     }
-   
+
     public AddModel getAddModel() {
-    	return model;
+        return model;
     }
 }
