@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
-import dataAccessObjects.systemLogDAO;
+import dataAccessObjects.SystemLogDAO;
 import finalNavigatorModule.NavigatorController;
 import finalNavigatorModule.NavigatorModel;
 import finalNavigatorModule.NavigatorView;
@@ -65,7 +65,7 @@ public class LoginController {
 					if (loginModel.checkMatch(loginModel.getUserMdl(), loginView.getTxtUsername(), loginView.getTxtPass())) {
 						loginView.setVisible(false);
 						new NavigatorController(new NavigatorView(), new NavigatorModel(loginModel.getUser(loginView.getTxtUsername().getText())));
-						systemLogDAO.getInstance().saveAccess("Logged in to the system", loginView.getTxtUsername().getText());
+						SystemLogDAO.getInstance().saveAccess("Logged in to the system", loginView.getTxtUsername().getText());
 					} else {
 						loginView.getLblNotMatch().setVisible(true);
 					}

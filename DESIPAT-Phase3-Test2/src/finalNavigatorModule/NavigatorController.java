@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import javax.swing.JLabel;
 
-import dataAccessObjects.systemLogDAO;
+import dataAccessObjects.SystemLogDAO;
 import finalAddModule.AddController;
 import finalAddModule.AddModel;
 import finalAddModule.AddView;
@@ -28,7 +28,7 @@ import finalViewModule.ViewNavigatorView;
 public class NavigatorController {
 	private NavigatorView navView;
 	private NavigatorModel navModel;
-	
+
 	private AddController addCon;
 	private DeleteController delCon;
 	private EditController editCon;
@@ -37,10 +37,10 @@ public class NavigatorController {
 	public NavigatorController(NavigatorView view, NavigatorModel model) {
 		this.navView = view;
 		this.navModel = model;
-		
+
 		addCon = new AddController(new AddModel(), new AddView(), this.navModel.getUsername());
 		this.navView.changeCurrentPanel(addCon.getAddView(), this.navView.getBtnAddAsset());
-		
+
 		this.navView.addButtonListeners(new Listener());
 	}
 
@@ -55,7 +55,7 @@ public class NavigatorController {
 
 		@Override
 		public void mousePressed(MouseEvent e) {
-			
+
 			//implement changeCurrentPanel here
 			if (e.getSource() == navView.getBtnAddAsset()) {
 				System.out.println("Add");
@@ -74,32 +74,14 @@ public class NavigatorController {
 				viewNavCon = new ViewNavigatorController(new ViewNavigatorView(navModel.getUsertype(), navModel.getUsername()));
 				navView.changeCurrentPanel(viewNavCon.getViewNavView(), navView.getBtnViewAsset());
 			} else if (e.getSource() == navView.getBtnLogout()){
-                try {
-                    systemLogDAO.getInstance().saveAccess("Logged out from the system", navModel.getUsername());
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-                navView.setVisible(false);
-                new LoginController(new LoginView(), new LoginModel());
-            }
-			
-			/*if (e.getSource() == addAsset) {
-               change(new AddGUI(), addAsset);
-            } else if (e.getSource() == deleteAsset) {
-                change(new DeleteGUI(usertype, username), deleteAsset);
-            } else if (e.getSource() == viewAsset) {
-               change(new viewassetNavigator(usertype,username), viewAsset);
-            } else if (e.getSource() == editAsset) {
-                 change(new EditGUI(), editAsset);
-            } else if (e.getSource() == logout){
-                try {
-                    systemLogDAO.getInstance().saveAccess("Logged out from the system", login.username.getText().toString());
-                } catch (SQLException ex) {
-                    Logger.getLogger(navigator.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                frame.setVisible(false);
-                login l = new login();
-            }*/
+				try {
+					SystemLogDAO.getInstance().saveAccess("Logged out from the system", navModel.getUsername());
+				} catch (Exception ex) {
+					ex.printStackTrace();
+				}
+				navView.setVisible(false);
+				new LoginController(new LoginView(), new LoginModel());
+			}
 		}
 
 		@Override
@@ -132,7 +114,7 @@ public class NavigatorController {
 		public void mouseReleased(MouseEvent e) {
 
 		}
-		
+
 		@Override
 		public void mouseClicked(MouseEvent e) {
 

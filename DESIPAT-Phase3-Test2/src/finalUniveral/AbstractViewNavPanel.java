@@ -1,10 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package finalUniveral;
 
-import java.sql.SQLException;
 import javax.swing.JPanel;
 
 /**
@@ -25,11 +20,6 @@ public abstract class AbstractViewNavPanel extends JPanel{
 		setFrame();
 		addToFrame();
 	}
-	
+
 	public abstract JPanel getPanel();
-
-
-
-
-
 }

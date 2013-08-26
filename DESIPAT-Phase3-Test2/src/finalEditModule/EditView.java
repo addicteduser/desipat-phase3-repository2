@@ -315,10 +315,10 @@ public class EditView extends AbstractNavGUI implements ActionListener {
         });
 
         setEditassetIcon(new ImageIcon[2]);
-        getEditassetIcon()[0] = new ImageIcon(this.getClass().getClassLoader().getResource("pictures/editasset.png"));
-        getEditassetIcon()[1] = new ImageIcon(this.getClass().getClassLoader().getResource("pictures/editasset.png"));
+        getEditassetIcon()[0] = new ImageIcon(this.getClass().getClassLoader().getResource("finalEditModule/editasset.png"));
+        getEditassetIcon()[1] = new ImageIcon(this.getClass().getClassLoader().getResource("finalEditModule/editasset.png"));
 
-        bg = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("pictures/addassetbg.png")));
+        bg = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("finalEditModule/editassetbg.png")));
 
         setEditasset(new JLabel(getEditassetIcon()[0]));
         setSuccessful(new JLabel("The asset has been successfully added!"));
@@ -332,7 +332,7 @@ public class EditView extends AbstractNavGUI implements ActionListener {
         setAssetCustodian(new JTextField());
         setStorageLocation(new JTextField());
         //    financial = new JTextField();
-        bg = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("pictures/editassetbg.png")));
+        bg = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("finalEditModule/editassetbg.png")));
 
         getEditasset().addMouseListener(l);
         getTypelist().addMouseListener(l);

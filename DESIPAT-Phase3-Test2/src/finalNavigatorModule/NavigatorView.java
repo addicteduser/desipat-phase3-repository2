@@ -6,7 +6,6 @@ import java.awt.event.MouseListener;
 import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,12 +15,12 @@ import javax.swing.JPanel;
  */
 public class NavigatorView extends JFrame {
 	protected JLabel bg;
-	
+
 	private JLabel btnAddAsset;
-    private JLabel btnDeleteAsset;
-    private JLabel btnViewAsset;
-    private JLabel btnEditAsset;
-    private JLabel btnLogout;
+	private JLabel btnDeleteAsset;
+	private JLabel btnViewAsset;
+	private JLabel btnEditAsset;
+	private JLabel btnLogout;
 
 	protected ImageIcon[] addAssetIcon;
 	protected ImageIcon[] deleteAssetIcon;
@@ -55,7 +54,7 @@ public class NavigatorView extends JFrame {
 	 */
 	private void initialize() throws SQLException, ClassNotFoundException {
 		bg = new JLabel(new ImageIcon(NavigatorView.class.getResource("/finalNavigatorModule/menu.png")));
-		
+
 		addAssetIcon = new ImageIcon[2];  
 		addAssetIcon[0] = new ImageIcon(NavigatorView.class.getResource("/finalNavigatorModule/plus.png"));
 		addAssetIcon[1] = new ImageIcon(NavigatorView.class.getResource("/finalNavigatorModule/plus_ON.png"));
@@ -71,20 +70,20 @@ public class NavigatorView extends JFrame {
 		viewAssetIcon = new ImageIcon[2];
 		viewAssetIcon[0] = new ImageIcon(NavigatorView.class.getResource("/finalNavigatorModule/list.png"));
 		viewAssetIcon[1] = new ImageIcon(NavigatorView.class.getResource("/finalNavigatorModule/list_ON.png"));
-		
+
 		btnAddAsset = new JLabel(addAssetIcon[0]);
-        btnDeleteAsset = new JLabel(deleteAssetIcon[0]);
-        btnEditAsset = new JLabel(editAssetIcon[0]);
-        btnViewAsset = new JLabel(viewAssetIcon[0]);
-        
-        btnAddAsset.setDisabledIcon(addAssetIcon[1]);
-        btnDeleteAsset.setDisabledIcon(deleteAssetIcon[1]);
-        btnEditAsset.setDisabledIcon(editAssetIcon[1]);
-        btnViewAsset.setDisabledIcon(viewAssetIcon[1]);       
-        
-        btnLogout = new JLabel("Logout");
-        btnLogout.setForeground(Color.white);
-        btnLogout.setFont(new Font("calibri", Font.PLAIN, 45));
+		btnDeleteAsset = new JLabel(deleteAssetIcon[0]);
+		btnEditAsset = new JLabel(editAssetIcon[0]);
+		btnViewAsset = new JLabel(viewAssetIcon[0]);
+
+		btnAddAsset.setDisabledIcon(addAssetIcon[1]);
+		btnDeleteAsset.setDisabledIcon(deleteAssetIcon[1]);
+		btnEditAsset.setDisabledIcon(editAssetIcon[1]);
+		btnViewAsset.setDisabledIcon(viewAssetIcon[1]);       
+
+		btnLogout = new JLabel("Logout");
+		btnLogout.setForeground(Color.white);
+		btnLogout.setFont(new Font("calibri", Font.PLAIN, 45));
 	}
 
 	/**
@@ -98,7 +97,7 @@ public class NavigatorView extends JFrame {
 		btnViewAsset.setBounds(505, 4, btnViewAsset.getIcon().getIconWidth(), btnViewAsset.getIcon().getIconHeight());
 		btnLogout.setBounds(725, 8, 200, 45);
 	}
-	
+
 	/**
 	 * Frame properties
 	 */
@@ -124,91 +123,91 @@ public class NavigatorView extends JFrame {
 		this.add(bg);
 
 	}
-	
+
 	/*
 	 * Other Methods
 	 */
-	
+
 	public void setExitIcons(){
-        btnAddAsset.setIcon(addAssetIcon[0]);
-        btnDeleteAsset.setIcon(deleteAssetIcon[0]);
-        btnViewAsset.setIcon(viewAssetIcon[0]);
-        btnEditAsset.setIcon(editAssetIcon[0]);
-     }
-     
-     
-    public void changeCurrentPanel(JPanel panel, JLabel panelbutton) {
-        if (this.currentPanel != null && this.currentButton != null) {
-            this.remove(this.currentPanel);
-            this.currentButton.setEnabled(true);
-        }
-       
-        setExitIcons();
-        this.currentPanel = panel;
-        this.add(currentPanel);
-        this.currentPanel.setBounds(0, bg.getIcon().getIconHeight(), panel.getWidth(), panel.getHeight());
-        this.currentButton = panelbutton;
-        this.setSize(890, 690);
-        this.setLocationRelativeTo(null);
-    }
-    
-    /*
-     * Add listener
-     */
-    
-    public void addButtonListeners(MouseListener listener) {
-    	btnAddAsset.addMouseListener(listener);
-    	btnDeleteAsset.addMouseListener(listener);
-    	btnViewAsset.addMouseListener(listener);
-    	btnEditAsset.addMouseListener(listener);
-    	btnLogout.addMouseListener(listener);
-    }
-    
-    /*
-     * Get components
-     */
-    
-    public JLabel getBtnAddAsset() {
-		return btnAddAsset;
+		btnAddAsset.setIcon(addAssetIcon[0]);
+		btnDeleteAsset.setIcon(deleteAssetIcon[0]);
+		btnViewAsset.setIcon(viewAssetIcon[0]);
+		btnEditAsset.setIcon(editAssetIcon[0]);
 	}
 
-	public JLabel getBtnDeleteAsset() {
-		return btnDeleteAsset;
+
+	public void changeCurrentPanel(JPanel panel, JLabel panelbutton) {
+		if (this.currentPanel != null && this.currentButton != null) {
+			this.remove(this.currentPanel);
+			this.currentButton.setEnabled(true);
+		}
+
+		setExitIcons();
+		this.currentPanel = panel;
+		this.add(currentPanel);
+		this.currentPanel.setBounds(0, bg.getIcon().getIconHeight(), panel.getWidth(), panel.getHeight());
+		this.currentButton = panelbutton;
+		this.setSize(890, 690);
+		this.setLocationRelativeTo(null);
 	}
 
-	public JLabel getBtnViewAsset() {
-		return btnViewAsset;
-	}
+	/*
+	 * Add listener
+	 */
 
-	public JLabel getBtnEditAsset() {
-		return btnEditAsset;
-	}
+	 public void addButtonListeners(MouseListener listener) {
+		 btnAddAsset.addMouseListener(listener);
+		 btnDeleteAsset.addMouseListener(listener);
+		 btnViewAsset.addMouseListener(listener);
+		 btnEditAsset.addMouseListener(listener);
+		 btnLogout.addMouseListener(listener);
+	 }
 
-	public JLabel getBtnLogout() {
-		return btnLogout;
-	}
+	 /*
+	  * Get components
+	  */
 
-	public ImageIcon[] getAddAssetIcon() {
-		return addAssetIcon;
-	}
+	 public JLabel getBtnAddAsset() {
+		 return btnAddAsset;
+	 }
 
-	public ImageIcon[] getDeleteAssetIcon() {
-		return deleteAssetIcon;
-	}
+	 public JLabel getBtnDeleteAsset() {
+		 return btnDeleteAsset;
+	 }
 
-	public ImageIcon[] getViewAssetIcon() {
-		return viewAssetIcon;
-	}
+	 public JLabel getBtnViewAsset() {
+		 return btnViewAsset;
+	 }
 
-	public ImageIcon[] getEditAssetIcon() {
-		return editAssetIcon;
-	}
+	 public JLabel getBtnEditAsset() {
+		 return btnEditAsset;
+	 }
 
-	public JPanel getCurrentPanel() {
-		return currentPanel;
-	}
+	 public JLabel getBtnLogout() {
+		 return btnLogout;
+	 }
 
-	public JLabel getCurrentButton() {
-		return currentButton;
-	}
+	 public ImageIcon[] getAddAssetIcon() {
+		 return addAssetIcon;
+	 }
+
+	 public ImageIcon[] getDeleteAssetIcon() {
+		 return deleteAssetIcon;
+	 }
+
+	 public ImageIcon[] getViewAssetIcon() {
+		 return viewAssetIcon;
+	 }
+
+	 public ImageIcon[] getEditAssetIcon() {
+		 return editAssetIcon;
+	 }
+
+	 public JPanel getCurrentPanel() {
+		 return currentPanel;
+	 }
+
+	 public JLabel getCurrentButton() {
+		 return currentButton;
+	 }
 }

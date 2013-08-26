@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package databaseConnection;
 
 import java.sql.Connection;
@@ -19,11 +15,9 @@ public class SQLConnection extends DBFactory {
 	@Override
 	public Connection getConnection() {
 		try {
-			// TODO code application logic here
 			Class.forName(getDriverName());
 			Connection conn = DriverManager.getConnection(getUrl(),
 					getUsername(), getPassword());
-			// System.out.println("success");
 			return conn;
 		} catch (SQLException ex) {
 			Logger.getLogger(SQLConnection.class.getName()).log(Level.SEVERE,

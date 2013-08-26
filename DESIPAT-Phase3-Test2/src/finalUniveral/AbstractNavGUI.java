@@ -7,8 +7,7 @@ import javax.swing.JPanel;
  * GUI product from the GUI Factory
  */
 public abstract class AbstractNavGUI extends JPanel {
-	public abstract void initialize() throws ClassNotFoundException,
-			SQLException;
+	public abstract void initialize() throws ClassNotFoundException, SQLException;
 
 	public abstract void setBounds();
 

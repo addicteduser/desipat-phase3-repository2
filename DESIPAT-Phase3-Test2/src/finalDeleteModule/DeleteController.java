@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 
-import dataAccessObjects.systemLogDAO;
+import dataAccessObjects.SystemLogDAO;
 import finalLoginModule.LoginView;
 
 public class DeleteController {
@@ -18,20 +18,19 @@ public class DeleteController {
 	public DeleteController(DeleteView view, DeleteModel model) {
 		this.deleteView = view;
 		this.deleteModel = model;
-		
+
 		try {
 			deleteModel.getAllAsset();
 			deleteModel.getAllUserModel();
-			
+
 			updateAssetsList();
 			updateUsersList();
-			
+
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			JOptionPane.showMessageDialog(null, "Database is empty!");
 		}
-		
-        this.deleteView.addBtnDelAssetListener(new DeleteAssetListener());
+
+		this.deleteView.addBtnDelAssetListener(new DeleteAssetListener());
 		this.deleteView.addBtnDelUserListener(new DeleteUserListener());
 	}
 
@@ -81,11 +80,11 @@ public class DeleteController {
 
 			deleteModel.adao.deleteAsset(selectedItem);
 			deleteView.getAssetList().removeAllItems();
-			
+
 			deleteModel.getAllAsset();
 
 			updateAssetsList();
-			systemLogDAO.getInstance().saveAccess(
+			SystemLogDAO.getInstance().saveAccess(
 					"Deleted asset " + selectedItem,
 					LoginView.getTxtUsername().getText());
 
@@ -106,24 +105,24 @@ public class DeleteController {
 			else
 				deleteModel.udao.deleteUser(selectedItem);
 			deleteView.getUserList().removeAllItems();
-			
+
 			deleteModel.getAllUserModel();
-			
+
 			updateUsersList();
-			systemLogDAO.getInstance().saveAccess(
+			SystemLogDAO.getInstance().saveAccess(
 					"Deleted user " + selectedItem,
 					LoginView.getTxtUsername().getText());
 
 		}
 	}
-	
+
 	/*
 	 * GET COMPONENTS
 	 */
 	public DeleteView getDeleteView() {
 		return deleteView;
 	}
-	
+
 	public DeleteModel getDeleteModel() {
 		return deleteModel;
 	}

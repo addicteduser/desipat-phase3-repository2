@@ -13,11 +13,11 @@ public class DeleteModel {
 	List<UserModel> usermdl;
 	AssetDAO adao = AssetDAO.getInstance();
 	UserDAO udao = UserDAO.getInstance();
-	
+
 	public void getAllAsset() throws SQLException {
-			assetName = AssetDAO.getInstance().getAllAssetNames();
+		assetName = AssetDAO.getInstance().getAllAssetNames();
 	}
-	
+
 	public void getAllUserModel() throws SQLException {
 		usermdl = UserDAO.getInstance().getAllUsers();
 	}

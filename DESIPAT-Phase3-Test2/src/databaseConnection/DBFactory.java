@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package databaseConnection;
 
 import java.sql.Connection;
@@ -22,7 +18,6 @@ public abstract class DBFactory {
 
 	public static DBFactory getInstance() {
 		ResourceBundle rb = ResourceBundle.getBundle("database");
-		Enumeration<String> settings = rb.getKeys();
 		driverName = rb.getString("driverName");
 		url = rb.getString("url");
 		username = rb.getString("username");
