@@ -205,6 +205,7 @@ public class AddView extends GUI implements ActionListener {
 
         populateYear(getDateAcquiredYear(), Calendar.getInstance().get(Calendar.YEAR));
         populateMonth();
+        populateDay(getDateAcquiredYear(),getDateAcquiredMonth(),getDateAcquiredDay());
 
         getTypelist().setSelectedIndex(0);
         getTypelist().addActionListener(this);
@@ -333,6 +334,7 @@ public class AddView extends GUI implements ActionListener {
         this.add(getTypelist());
         this.add(getDateAcquiredMonth());
         this.add(getDateAcquiredDay());
+        this.add(getDateAcquiredYear());
         this.add(getRetentionPeriodFromYear());
         this.add(getRetentionPeriodFromMonth());
         this.add(getRetentionPeriodFromDay());
@@ -693,6 +695,10 @@ public class AddView extends GUI implements ActionListener {
     
     public void setDateRetentionDayListener(ActionListener listener) {
         dateAcquiredDay.addActionListener(listener);
+    }
+    
+    public void setAddAssetBtnListener(MouseListener listener){
+        addasset.addMouseListener(listener);
     }
 
     /**

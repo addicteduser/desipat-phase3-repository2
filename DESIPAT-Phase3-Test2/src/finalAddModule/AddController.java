@@ -8,6 +8,7 @@ import DAO.AssetDAO;
 import DAO.assetHistoryDAO;
 import DAO.systemLogDAO;
 import Model.AssetModel;
+import assetreg.DateUtil;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,12 +36,13 @@ public class AddController {
         this.username = username;
 
         view.setDateAcquiredYear(view.populateYear(view.getDateAcquiredYear(), Calendar.getInstance().get(Calendar.YEAR)));
-        
+        initListeners();
         
     }
 
     public void initListeners(){
         view.setListener(new btnAddListener());
+        view.setAddAssetBtnListener(new btnAddListener());
         view.setDateAcquiredYearListener(new cbDateYearListener());
         view.setDateAcquiredMonthListener(new cbDateMonthListener());
         view.setDateAcquiredDayListener(new cbDateDayListener());
