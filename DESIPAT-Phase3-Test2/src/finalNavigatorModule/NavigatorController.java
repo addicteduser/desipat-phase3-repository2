@@ -31,7 +31,7 @@ public class NavigatorController {
 		this.navModel = model;
 		
 		addCon = new AddController(new AddModel(), new AddView(), this.navModel.getUsername());
-		delCon = new DeleteController(new DeleteView(this.navModel.getUsertype(), this.navModel.getUsername()), new DeleteModel());
+		//delCon = new DeleteController(new DeleteView(this.navModel.getUsertype(), this.navModel.getUsername()), new DeleteModel());
 		
 		//this.navView.changeCurrentPanel(delCon.getDeleteView(), this.navView.getBtnAddAsset());
 		this.navView.changeCurrentPanel(addCon.getAddView(), this.navView.getBtnAddAsset());

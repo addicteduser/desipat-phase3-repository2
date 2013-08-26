@@ -45,9 +45,6 @@ public class NavigatorView extends JFrame {
 		} catch (ClassNotFoundException e){
 			e.printStackTrace();
 		}
-		
-		// IMPLEMENT THIS
-		//changeCurrentPanel(new AddGUI(), btnAddAsset);
 	}
 
 	/**
@@ -110,7 +107,7 @@ public class NavigatorView extends JFrame {
 		this.setLayout(null);
 		this.setVisible(true);
 		this.setLocationRelativeTo(null);
-		this.setResizable(false);
+		this.setResizable(true);
 		this.setTitle("Asset Registry");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
@@ -148,9 +145,11 @@ public class NavigatorView extends JFrame {
        
         setExitIcons();
         this.currentPanel = panel;
-        this.add(panel);
+        this.add(currentPanel);
         this.currentPanel.setBounds(0, bg.getIcon().getIconHeight(), panel.getWidth(), panel.getHeight());
         this.currentButton = panelbutton;
+        this.setSize(this.getWidth()+10, this.getHeight()+currentPanel.getHeight()+15);
+        this.setLocationRelativeTo(null);
     }
     
     /*

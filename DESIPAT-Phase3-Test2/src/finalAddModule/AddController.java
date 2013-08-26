@@ -8,7 +8,7 @@ import DAO.AssetDAO;
 import DAO.assetHistoryDAO;
 import DAO.systemLogDAO;
 import Model.AssetModel;
-import assetreg.DateUtil;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -89,6 +89,9 @@ public class AddController {
 
         @Override
         public void mousePressed(MouseEvent e) {
+        	if (e.getSource() == view.getAddasset()) {
+        		System.out.println("i work!!!");
+        	}
 
             if (e.getSource() == view.getAddasset() && view.blankCheck()) {
 
