@@ -119,7 +119,7 @@ public class AddController {
                 try {
                     AssetDAO.getInstance().addAsset(AssetModel.getInstance());
                     systemLogDAO.getInstance().saveAccess("Added asset " + view.getAssetName().getText(), username);
-                    assetHistoryDAO.getInstance().saveHistory(view.getAssetName().getText(), AssetDAO.getInstance().getAssetIdentifier(view.getAssetName().getText()), view.getAssetOwner().getText(), dateAcquiredSQL);
+                    assetHistoryDAO.getInstance().saveHistory(view.getAssetName().getText(), AssetDAO.getInstance().getAssetIdentifier(view.getAssetName().getText()), view.getAssetOwner().getText(), model.getDateAcquiredSQL());
                     //OwnerDAO.getInstance().saveOwner(assetOwner.getText(), AssetDAO.getInstance().getAssetIdentifier(assetName.getText()), assetName.getText());
                 } catch (SQLException ex) {
                     Logger.getLogger(AddView.class.getName()).log(Level.SEVERE, null, ex);
