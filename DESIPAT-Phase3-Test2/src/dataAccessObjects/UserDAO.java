@@ -64,28 +64,13 @@ public class UserDAO extends DAO {
 			usermodel.setUsertype(rs.getString("userType"));
 
 			allusers.add(usermodel);
-			// System.out.println(allusers.get(0).getUsername());
 		}
 		close(ps, connection);
 		return allusers;
 
 	}
 
-	/*
-	 * public String getUserType(String username) throws SQLException{ String
-	 * usertype = ""; Connection connection = getConnection(); PreparedStatement
-	 * ps =
-	 * connection.prepareStatement("SELECT userType FROM users WHERE username = '"
-	 * + username + "'"); ResultSet rs = query(ps); while(rs.next()) usertype =
-	 * rs.getString("userType");
-	 * 
-	 * // System.out.println(usertype); return usertype;
-	 * 
-	 * }
-	 */
-
 	public void deleteUser(String username) throws SQLException {
-		// System.out.println(username);
 		int confirmation = JOptionPane.showConfirmDialog(null,
 				"Are you sure you want to delete this user?", "Delete User",
 				JOptionPane.YES_NO_OPTION);
