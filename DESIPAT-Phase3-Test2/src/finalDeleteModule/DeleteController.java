@@ -18,6 +18,14 @@ public class DeleteController {
 	public DeleteController(DeleteView view, DeleteModel model) {
 		this.deleteView = view;
 		this.deleteModel = model;
+		
+		updateAssetsList();
+        try {
+			updateUsersList();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		this.deleteView.addBtnDelAssetListener(new DeleteAssetListener());
 		this.deleteView.addBtnDelUserListener(new DeleteUserListener());

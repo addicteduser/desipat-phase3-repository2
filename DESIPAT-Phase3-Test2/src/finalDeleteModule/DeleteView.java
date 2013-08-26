@@ -129,8 +129,8 @@ public class DeleteView extends GUI{
     public void makePanel() {
         try {
             initialize();
-            updateAssetsList();
-            updateUsersList();
+            //updateAssetsList();
+            //updateUsersList();
             setBounds();
             setPanelSize();
             addToPanel();
