@@ -30,11 +30,11 @@ public class NavigatorController {
 		this.navView = view;
 		this.navModel = model;
 		
-		addCon = new AddController(new AddModel(), new AddView(), this.navModel.getUsername());
-		//delCon = new DeleteController(new DeleteView(this.navModel.getUsertype(), this.navModel.getUsername()), new DeleteModel());
+		//addCon = new AddController(new AddModel(), new AddView(), this.navModel.getUsername());
+		delCon = new DeleteController(new DeleteView(this.navModel.getUsertype(), this.navModel.getUsername()), new DeleteModel());
 		
-		//this.navView.changeCurrentPanel(delCon.getDeleteView(), this.navView.getBtnAddAsset());
-		this.navView.changeCurrentPanel(addCon.getAddView(), this.navView.getBtnAddAsset());
+		this.navView.changeCurrentPanel(delCon.getDeleteView(), this.navView.getBtnDeleteAsset());
+		//this.navView.changeCurrentPanel(addCon.getAddView(), this.navView.getBtnAddAsset());
 		
 		this.navView.addButtonListeners(new Listener());
 	}
