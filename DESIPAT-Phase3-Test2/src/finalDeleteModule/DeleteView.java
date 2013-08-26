@@ -16,7 +16,7 @@ import java.sql.*;
 
 import javax.swing.*;
 
-import abstractPanel.GUI;
+import abstractPanel.AbstractNavGUI;
 import finalLoginModule.LoginView;
 
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ import java.util.logging.Logger;
  *
  * @author KYLE DELA CRUZ
  */
-public class DeleteView extends GUI{    
+public class DeleteView extends AbstractNavGUI{    
     protected JLabel bg;
 
 	protected Connection connect;

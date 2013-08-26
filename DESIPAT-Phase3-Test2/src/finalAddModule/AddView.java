@@ -21,13 +21,13 @@ import java.util.logging.Logger;
 
 import javax.swing.Timer;
 
-import abstractPanel.GUI;
+import abstractPanel.AbstractNavGUI;
 
 /**
  *
  * @author JT
  */
-public class AddView extends GUI implements ActionListener {
+public class AddView extends AbstractNavGUI implements ActionListener {
 
     protected JLabel bg;
     private JLabel addasset;

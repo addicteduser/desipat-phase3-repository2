@@ -66,7 +66,7 @@ public class NavigatorController {
 			} else if (e.getSource() == navView.getBtnViewAsset()) {
 				System.out.println("View");
 				viewNavCon = new ViewNavigatorController(new ViewNavigatorView(navModel.getUsertype(), navModel.getUsername()));
-				//new viewassetNavigator(usertype,username), viewAsset
+				navView.changeCurrentPanel(viewNavCon.getViewNavView(), navView.getBtnViewAsset());
 			} else if (e.getSource() == navView.getBtnLogout()){
                 try {
                     systemLogDAO.getInstance().saveAccess("Logged out from the system", navModel.getUsername());

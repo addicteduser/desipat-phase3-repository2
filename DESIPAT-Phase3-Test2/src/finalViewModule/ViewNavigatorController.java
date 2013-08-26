@@ -13,11 +13,17 @@ public class ViewNavigatorController {
 	private String usertype;
 	private String username;
 	
+	private ViewByAssetHistory byHistory;
+	private ViewByAssetDetails byDetails;
+	private ViewBySystemLog bySystemLog;
+	
 	public ViewNavigatorController(ViewNavigatorView view) {
 		viewNavView = view;
 		
-		//addCon = new AddController(new AddModel(), new AddView(), this.navModel.getUsername());
-		//this.navView.changeCurrentPanel(addCon.getAddView(), this.navView.getBtnAddAsset());
+		
+		byHistory = new ViewByAssetHistory(viewNavView.getUsername());
+		byHistory.createPanel();
+		this.viewNavView.changeCurrentPanel(byHistory.getPanel(), viewNavView.getViewassethistory());
 		
 		this.viewNavView.addButtonListeners(new Listener());
 	}
@@ -30,6 +36,23 @@ public class ViewNavigatorController {
 
         @Override
         public void mousePressed(MouseEvent e) {
+        	if (e.getSource() == viewNavView.getViewassethistory()) {
+        		System.out.println("history");
+        		byHistory = new ViewByAssetHistory(viewNavView.getUsername());
+        		byHistory.createPanel();
+        		viewNavView.changeCurrentPanel(byHistory.getPanel(), viewNavView.getViewassethistory());
+        	} else if (e.getSource() == viewNavView.getViewassetdetails()) {
+        		System.out.println("details");
+        		byDetails = new ViewByAssetDetails(viewNavView.getUsername());
+        		byDetails.createPanel();
+        		viewNavView.changeCurrentPanel(byDetails.getPanel(), viewNavView.getViewassetdetails());
+        	} else if (e.getSource() == viewNavView.getViewsystemlog()) {
+        		System.out.println("systemlog");
+        		bySystemLog = new ViewBySystemLog(viewNavView.getUsername());
+        		bySystemLog.createPanel();
+        		viewNavView.changeCurrentPanel(bySystemLog.getPanel(), viewNavView.getViewsystemlog());
+        	}
+        	
         	// change panel
             /*if (e.getSource() == viewassethistory) {
                   assethistory = new viewByAssetHistory();
@@ -76,4 +99,11 @@ public class ViewNavigatorController {
 
         
     }
+	
+	/*
+	 * GET COMPONENTS
+	 */
+	public ViewNavigatorView getViewNavView() {
+		return viewNavView;
+	}
 }

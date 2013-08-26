@@ -18,12 +18,6 @@ public class ViewNavigatorView extends JPanel {
 	protected ImageIcon[] viewassetdetailsIcon;
 	protected ImageIcon[] viewsystemlogIcon;
 
-	view assethistory;
-	view assetdetails;
-	view systemlog;
-
-	protected JPanel panel;
-	protected JLabel panelbutton;
 	public static String username;
 	public static String usertype;
 
@@ -69,11 +63,6 @@ public class ViewNavigatorView extends JPanel {
 		viewassethistory.setDisabledIcon(viewassethistoryIcon[1]);
 		viewassetdetails.setDisabledIcon(viewassetdetailsIcon[1]);
 		viewsystemlog.setDisabledIcon(viewsystemlogIcon[1]);
-
-		/*assetdetails = new viewByAssetDetails();
-		assetdetails.View();
-		change( assetdetails.getPanel(), viewassetdetails);*/
-
 	}
 
 	public boolean isAdmin(String usertype){
@@ -84,7 +73,6 @@ public class ViewNavigatorView extends JPanel {
 
 	private void setBounds()  {
 		bg.setBounds(0, 0, bg.getIcon().getIconWidth(), bg.getIcon().getIconHeight());
-		panel.setBounds(0, bg.getIcon().getIconHeight(), panel.getWidth(), panel.getHeight());
 		viewassethistory.setBounds(475, 23, viewassethistory.getIcon().getIconWidth(), viewassethistory.getIcon().getIconHeight());
 		viewassetdetails.setBounds(275, 23, viewassetdetails.getIcon().getIconWidth(), viewassetdetails.getIcon().getIconHeight());
 		viewsystemlog.setBounds(690, 23, viewsystemlog.getIcon().getIconWidth(), viewsystemlog.getIcon().getIconHeight());
@@ -93,7 +81,6 @@ public class ViewNavigatorView extends JPanel {
 	}
 
 	private void setFrame() {
-		this.setSize(bg.getIcon().getIconWidth(), bg.getIcon().getIconHeight() + panel.getHeight());
 		this.setLayout(null);
 		this.setVisible(true);
 	}
@@ -111,7 +98,6 @@ public class ViewNavigatorView extends JPanel {
 
 		this.add(viewsystemlog);
 
-		this.add(panel);
 		this.add(bg);
 
 	}
@@ -121,24 +107,6 @@ public class ViewNavigatorView extends JPanel {
 		viewassetdetails.setIcon(viewassetdetailsIcon[0]);
 		viewsystemlog.setIcon(viewsystemlogIcon[0]);
 	}
-
-
-	/*public void change(JPanel panel, JLabel panelbutton) {
-		if (this.panel != null && this.panelbutton != null) {
-			this.remove(this.panel);
-			this.panelbutton.addMouseListener(l);
-			this.panelbutton.setEnabled(true);
-		}
-
-		setExitIcons();
-		this.panel = panel;
-		this.add(panel);
-
-		this.panel.setBounds(0, bg.getIcon().getIconHeight(), panel.getWidth(), panel.getHeight());
-		this.panelbutton = panelbutton;
-		panelbutton.removeMouseListener(l);
-		panelbutton.setEnabled(false);
-	}*/
 
 	public void changeCurrentPanel(JPanel panel, JLabel panelbutton) {
 		if (this.currentPanel != null && this.currentButton != null) {
@@ -186,14 +154,6 @@ public class ViewNavigatorView extends JPanel {
 
 	public ImageIcon[] getViewsystemlogIcon() {
 		return viewsystemlogIcon;
-	}
-
-	public JPanel getPanel() {
-		return panel;
-	}
-
-	public JLabel getPanelbutton() {
-		return panelbutton;
 	}
 
 	public static String getUsername() {
