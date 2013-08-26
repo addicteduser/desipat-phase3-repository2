@@ -5,8 +5,7 @@
 package finalAddModule;
 
 import DAO.*;
-import Model.*;
-import finalLoginModule.LoginController;
+import assetreg.numericTextfield;
 
 import java.awt.*;
 import java.awt.event.*;

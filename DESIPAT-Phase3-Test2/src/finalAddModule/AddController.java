@@ -95,7 +95,7 @@ public class AddController {
                 try {
                     model.setDateAcquiredSQL(DateUtil.utilDateToSqlDate(model.getDateAcquiredSQL()));
                     model.setRetentionPeriodFromSQL(model.getDateAcquiredSQL());
-                    model.setRetentionPeriodToSQL = DateUtil.utilDateToSqlDate(model.retentionDate);
+                    model.setRetentionPeriodToSQL(DateUtil.utilDateToSqlDate(view.getRetentionDate()));
 
                 } catch (ParseException ex) {
                     Logger.getLogger(AddView.class.getName()).log(Level.SEVERE, null, ex);
