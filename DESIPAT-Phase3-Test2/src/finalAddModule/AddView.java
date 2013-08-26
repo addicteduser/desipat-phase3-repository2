@@ -4,13 +4,10 @@
  */
 package finalAddModule;
 
-import DAO.ValueTypeDAO;
 import DAO.*;
 import Model.*;
-import assetreg.DateUtil;
-import assetreg.GUI;
-import assetreg.numericTextfield;
 import finalLoginModule.LoginController;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
@@ -18,10 +15,15 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.*;
+
 import javax.swing.*;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.swing.Timer;
+
+import view.GUI;
 
 /**
  *

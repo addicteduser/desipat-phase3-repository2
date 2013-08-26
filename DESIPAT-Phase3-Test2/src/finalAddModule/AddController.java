@@ -27,10 +27,12 @@ public class AddController {
 
     private AddView view;
     private AddModel model;
+    private String username;
 
-    public AddController(AddModel model, AddView view) {
+    public AddController(AddModel model, AddView view, String username) {
         this.view = view;
         this.model = model;
+        this.username = username;
 
         view.setDateAcquiredYear(view.populateYear(view.getDateAcquiredYear(), Calendar.getInstance().get(Calendar.YEAR)));
         
@@ -116,7 +118,7 @@ public class AddController {
 
                 try {
                     AssetDAO.getInstance().addAsset(AssetModel.getInstance());
-                    systemLogDAO.getInstance().saveAccess("Added asset " + view.getAssetName().getText(), login.username.getText().toString());
+                    systemLogDAO.getInstance().saveAccess("Added asset " + view.getAssetName().getText(), username);
                     assetHistoryDAO.getInstance().saveHistory(view.getAssetName().getText(), AssetDAO.getInstance().getAssetIdentifier(view.getAssetName().getText()), view.getAssetOwner().getText(), dateAcquiredSQL);
                     //OwnerDAO.getInstance().saveOwner(assetOwner.getText(), AssetDAO.getInstance().getAssetIdentifier(assetName.getText()), assetName.getText());
                 } catch (SQLException ex) {
@@ -175,5 +177,16 @@ public class AddController {
         public void mouseClicked(MouseEvent me) {
             throw new UnsupportedOperationException("Not supported yet.");
         }
+    }
+    
+    /*
+     * GET COMPONENTS
+     */
+    public AddView getAddView() {
+    	return view;
+    }
+   
+    public AddModel getAddModel() {
+    	return model;
     }
 }
