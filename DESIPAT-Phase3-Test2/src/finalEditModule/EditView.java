@@ -4,25 +4,21 @@
  */
 package finalEditModule;
 
+import DAO.*;
+import assetreg.numericTextfield;
 import finalEditModule.EditController.Listener;
 import finalUniveral.AbstractNavGUI;
-import finalUniveral.numericTextfield;
 
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 import javax.swing.*;
 
-import dataAccessObjects.*;
 import dataModel.*;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.ResourceBundle;
@@ -63,11 +59,7 @@ public class EditView extends AbstractNavGUI implements ActionListener {
     private JComboBox retentionPeriodToMonth = new JComboBox();
     private JComboBox retentionPeriodToDay = new JComboBox();
     private JComboBox maintenanceSched = new JComboBox();
-    Date dateAcquired = null;
-    Date retentionDate = null;
-    java.sql.Date dateAcquiredSQL;
-    java.sql.Date retentionPeriodFromSQL;
-    java.sql.Date retentionPeriodToSQL;
+
     Calendar calendar = Calendar.getInstance();
 
     public EditView() {
@@ -104,7 +96,6 @@ public class EditView extends AbstractNavGUI implements ActionListener {
 
     public void checkDate(Date dateAcquired, Date retentionDate) {
         if (dateAcquired.after(retentionDate)) {
-
             getRetentionPeriodToYear().setBackground(Color.getHSBColor(353, 0.58f, 0.92f));
             getRetentionPeriodToMonth().setBackground(Color.getHSBColor(353, 0.58f, 0.92f));
             getRetentionPeriodToDay().setBackground(Color.getHSBColor(353, 0.58f, 0.92f));
@@ -137,7 +128,7 @@ public class EditView extends AbstractNavGUI implements ActionListener {
         retentionDateString = det.getRetentionPeriodTo().toString().split("-");
 
         for (int i = 0; i < getDateAcquiredYear().getItemCount(); i++) {
-            getDateAcquiredYear().setSelectedIndex(i);
+            getDateAcquiredYear().setSelectedIndex(i); 
             if (getDateAcquiredYear().getSelectedItem().toString().equals(dateAcquiredString[0])) {
                 dAY = i;
             }
@@ -155,7 +146,18 @@ public class EditView extends AbstractNavGUI implements ActionListener {
         getRetentionPeriodToYear().setSelectedIndex(rAY);
         getRetentionPeriodToMonth().setSelectedIndex(Integer.parseInt(retentionDateString[1]) - 1);
         getRetentionPeriodToDay().setSelectedIndex(Integer.parseInt(retentionDateString[2]) - 1);
+        
+        for (int i = 0; i < getRetentionPeriodFromYear().getItemCount(); i++) {
+            getRetentionPeriodFromYear().setSelectedIndex(i);
+            if (getRetentionPeriodFromYear().getSelectedItem().toString().equals(dateAcquiredString[0])) {
+                rAY = i;
+            }
+        }
+        getRetentionPeriodFromYear().setSelectedIndex(rAY);
+        getRetentionPeriodFromMonth().setSelectedIndex(Integer.parseInt(dateAcquiredString[1]) - 1);
+        getRetentionPeriodFromDay().setSelectedIndex(Integer.parseInt(dateAcquiredString[2]) - 1);
 
+        
         //Maintenance Schedule
         for (int i = 0; i < getMaintenanceSched().getItemCount(); i++) {
             getMaintenanceSched().setSelectedIndex(i);
@@ -435,59 +437,6 @@ public class EditView extends AbstractNavGUI implements ActionListener {
         }
     }
 
-    public boolean blankCheck() {
-
-        int i = 0;
-
-        if (getAssetCustodian().getText().equals("")) {
-            getAssetCustodian().setBackground(Color.getHSBColor(353, 0.58f, 0.92f));
-            i++;
-        } else {
-            getAssetCustodian().setBackground(Color.white);
-        }
-
-        if (getFinancial().getText().equals("")) {
-            getFinancial().setBackground(Color.getHSBColor(353, 0.58f, 0.92f));
-            i++;
-        } else {
-            getFinancial().setBackground(Color.white);
-        }
-
-        if (getStorageLocation().getText().equals("")) {
-            getStorageLocation().setBackground(Color.getHSBColor(353, 0.58f, 0.92f));
-            i++;
-        } else {
-            getStorageLocation().setBackground(Color.white);
-        }
-
-        if (getAssetOwner().getText().equals("")) {
-            getAssetOwner().setBackground(Color.getHSBColor(353, 0.58f, 0.92f));
-            i++;
-        } else {
-            getAssetOwner().setBackground(Color.white);
-        }
-        if (dateAcquired == null && retentionDate == null) {
-            i++;
-            getSuccessful().setText("Please enter date acquired and retention period.");
-            getSuccessful().setBounds(460, 450, 500, 30);
-            getSuccessful().setVisible(true);
-        }
-
-        if (getRetentionPeriodToDay().getBackground().equals(Color.getHSBColor(353, 0.58f, 0.92f))
-                && getRetentionPeriodToMonth().getBackground().equals(Color.getHSBColor(353, 0.58f, 0.92f))
-                && getRetentionPeriodToYear().getBackground().equals(Color.getHSBColor(353, 0.58f, 0.92f))) {
-            i++;
-            getSuccessful().setText("Invalid Retention Period.");
-            getSuccessful().setBounds(660, 450, 500, 30);
-            getSuccessful().setVisible(true);
-        }
-
-        if (i == 0) {
-            return true;
-        }
-
-        return false;
-    }
 
     /**
      * @return the successful
