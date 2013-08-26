@@ -6,6 +6,9 @@ import java.sql.SQLException;
 
 import javax.swing.JLabel;
 
+import finalDeleteModule.DeleteController;
+import finalDeleteModule.DeleteModel;
+import finalDeleteModule.DeleteView;
 import finalLoginModule.LoginController;
 import finalLoginModule.LoginModel;
 import finalLoginModule.LoginView;
@@ -16,13 +19,16 @@ import finalLoginModule.LoginView;
 public class NavigatorController {
 	private NavigatorView navView;
 	private NavigatorModel navModel;
+	
+	private DeleteController delCon;
 
 	public NavigatorController(NavigatorView view, NavigatorModel model) {
 		this.navView = view;
 		this.navModel = model;
 		
-		//Implement Add
-		//this.navView.changeCurrentPanel(new AddGUI(), this.navView.getBtnAddAsset());
+		delCon = new DeleteController(new DeleteView(this.navModel.getUsertype(), this.navModel.getUsername()), new DeleteModel());
+		
+		this.navView.changeCurrentPanel(delCon.getDeleteView(), this.navView.getBtnAddAsset());
 		
 		this.navView.addButtonListeners(new Listener());
 	}

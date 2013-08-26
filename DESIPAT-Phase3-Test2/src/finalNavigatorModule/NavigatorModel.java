@@ -19,4 +19,12 @@ public class NavigatorModel {
 		 this.username = username;
 	     usertype = UserDAO.getInstance().getUser(username).getUsertype();
 	 }
+	 
+	 public String getUsername() {
+		 return username;
+	 }
+	 
+	 public String getUsertype() {
+		 return usertype;
+	 }
 }

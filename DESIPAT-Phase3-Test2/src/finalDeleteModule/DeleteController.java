@@ -98,4 +98,15 @@ public class DeleteController {
 
 		}
 	}
+	
+	/*
+	 * GET COMPONENTS
+	 */
+	public DeleteView getDeleteView() {
+		return deleteView;
+	}
+	
+	public DeleteModel getDeleteModel() {
+		return deleteModel;
+	}
 }
